@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shrinivas Medical and General Store</title>
+  <meta name="description" content="Browse products from Shrinivas Medical and General Store.">
+  <style>
+    :root{--green:#176b45;--green2:#0e5133;--bg:#f5f8f5;--ink:#17231c;--muted:#65736a;--line:#dce6df}
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+    header{background:linear-gradient(120deg,var(--green2),var(--green));color:#fff;padding:24px 18px}
+    .wrap{max-width:1100px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:13px}.logo{width:52px;height:52px;border-radius:14px;background:#fff;color:var(--green);display:grid;place-items:center;font-size:27px;font-weight:bold}
+    h1{font-size:clamp(22px,4vw,32px);margin:0 0 5px}.subtitle{margin:0;color:#e1f1e7}
+    .admin-link{color:#fff;border:1px solid #b7d8c3;border-radius:9px;padding:10px 14px;text-decoration:none}
+    main{padding:24px 18px 48px}.intro{padding:20px 0}.intro h2{margin:0 0 8px}.intro p{color:var(--muted);margin:0}
+    .tools{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 22px}.tools input,.tools select{padding:12px;border:1px solid var(--line);border-radius:9px;background:#fff;font-size:15px}
+    .tools input{flex:1;min-width:200px}.tools select{min-width:160px}
+    .status{padding:13px 15px;border-radius:10px;background:#fff;border:1px solid var(--line);color:var(--muted);margin:16px 0}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 3px 12px #173b2410}
+    .product-image{height:160px;background:#eaf2ec;display:grid;place-items:center;color:#52745d;font-size:42px;overflow:hidden}
+    .product-image img{width:100%;height:100%;object-fit:cover}.product-info{padding:15px}.product-info h3{margin:0 0 7px;font-size:18px}.category{font-size:12px;color:var(--green);font-weight:bold;text-transform:uppercase;letter-spacing:.05em}
+    .desc{color:var(--muted);font-size:14px;line-height:1.45;min-height:38px}.bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}.price{font-size:20px;font-weight:bold;color:var(--green)}.stock{font-size:12px;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding:24px 16px;border-top:1px solid var(--line)}
+    @media(max-width:500px){.admin-link{width:100%;text-align:center}.tools select{width:100%}}
+  </style>
+</head>
+<body>
+<header><div class="wrap top"><div class="brand"><div class="logo" aria-hidden="true">✚</div><div><h1>Shrinivas Medical and General Store</h1><p class="subtitle">Your neighbourhood store</p></div></div><a class="admin-link" href="admin.html">Admin login</a></div></header>
+<main class="wrap">
+  <section class="intro"><h2>Browse our products</h2><p>Product availability and prices may change. Please contact the store to confirm before visiting.</p></section>
+  <div class="tools"><input id="search" type="search" placeholder="Search products..." aria-label="Search products"><select id="category" aria-label="Filter by category"><option value="">All categories</option></select></div>
+  <div id="status" class="status">Loading products…</div><section id="products" class="grid" aria-live="polite"></section>
+</main>
+<footer><div class="wrap">© <span id="year"></span> Shrinivas Medical and General Store</div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const statusBox = document.getElementById('status');
+const grid = document.getElementById('products');
+const searchInput = document.getElementById('search');
+const categorySelect = document.getElementById('category');
+let allProducts = [];
+function escapeHtml(value=''){return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(){
+  const term=searchInput.value.trim().toLowerCase(), category=categorySelect.value;
+  const shown=allProducts.filter(p=>(!term || [p.name,p.description,p.category].join(' ').toLowerCase().includes(term)) && (!category || p.category===category));
+  grid.innerHTML=shown.map(p=>`<article class="card"><div class="product-image">${p.image_url?`<img src="${escapeHtml(p.image_url)}" alt="${escapeHtml(p.name)}" loading="lazy" onerror="this.parentElement.textContent='✚'">`:'✚'}</div><div class="product-info"><div class="category">${escapeHtml(p.category||'General')}</div><h3>${escapeHtml(p.name)}</h3><p class="desc">${escapeHtml(p.description||'')}</p><div class="bottom"><span class="price">₹${Number(p.price||0).toFixed(2)}</span><span class="stock">${Number(p.stock)>0?'In stock':'Out of stock'}</span></div></div></article>`).join('');
+  statusBox.textContent=shown.length ? `${shown.length} product${shown.length===1?'':'s'} found.` : 'No products found. Please check back soon.';
+}
+async function init(){
+  if(!window.STORE_SUPABASE_URL || !window.STORE_SUPABASE_PUBLISHABLE_KEY || window.STORE_SUPABASE_URL.includes('YOUR_')){
+    statusBox.textContent='Website setup is not finished yet. Add your Supabase Project URL and publishable key in supabase-config.js.';
+    return;
+  }
+  const client=window.supabase.createClient(window.STORE_SUPABASE_URL,window.STORE_SUPABASE_PUBLISHABLE_KEY);
+  const {data,error}=await client.from('products').select('id,name,description,category,price,image_url,stock,is_active').eq('is_active',true).order('name');
+  if(error){statusBox.textContent='Could not load products. Check your Supabase configuration and products table.';console.error(error);return;}
+  allProducts=data||[];
+  const categories=[...new Set(allProducts.map(p=>p.category).filter(Boolean))].sort();
+  categorySelect.innerHTML='<option value="">All categories</option>'+categories.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
+  statusBox.hidden=allProducts.length>0;
+  render();
+}
+searchInput.addEventListener('input',render);categorySelect.addEventListener('change',render);init();
+</script>
+</body>
+</html>
