@@ -21,6 +21,12 @@ footer{background:#fff;border-top:1px solid var(--line);padding:27px 0;color:var
 @media(max-width:650px){.wrap{width:min(100% - 28px,1160px)}.announcement{font-size:10px}.nav{min-height:72px}.brand-mark{width:44px;height:44px;flex-basis:44px}.brand-copy strong{font-size:13px}.brand-copy span{font-size:9px}.admin-link{padding:10px 11px;font-size:12px}.hero{padding-top:20px}.hero-card{grid-template-columns:1fr;padding:28px 23px 20px;border-radius:23px}.hero h2{font-size:42px}.hero p{font-size:14px}.hero-art{min-height:190px;margin-top:8px}.health-orb{width:170px}.tag-one{right:5px;top:5px}.tag-two{left:0;bottom:0}.trust-row{grid-template-columns:1fr;gap:9px;padding-bottom:30px}.trust{padding:13px}.section-head{display:block}.section-head p{margin-top:9px}.tools{gap:9px}.tools select{width:100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.product-image{height:130px}.product-info{padding:12px}.product-info h3{font-size:14px}.desc{font-size:11px;min-height:34px}.bottom{align-items:flex-start;flex-direction:column;gap:7px}.price{font-size:16px}.bottom-banner{align-items:flex-start;flex-direction:column;padding:23px;margin-bottom:35px}.bottom-banner h3{font-size:19px}}
 @media(max-width:360px){.brand-copy strong{font-size:11px}.admin-link{font-size:11px;padding:9px}.grid{grid-template-columns:1fr}.product-image{height:175px}}
 </style>
+
+<style>
+.contact-section{padding:0 0 54px}.contact-card{background:#fff;border:1px solid var(--line);border-radius:23px;padding:clamp(22px,4vw,38px);box-shadow:var(--shadow)}.contact-heading{margin-bottom:22px}.contact-heading .section-kicker{color:var(--green);font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.15em}.contact-heading h2{font-size:clamp(26px,3.5vw,36px);letter-spacing:-.04em;margin:7px 0 8px;color:var(--teal)}.contact-heading p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}.contact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.contact-item{border:1px solid var(--line);border-radius:16px;padding:19px;min-width:0}.contact-icon{width:42px;height:42px;border-radius:13px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:21px;margin-bottom:13px}.contact-item h3{font-size:15px;color:var(--teal);margin:0 0 7px}.contact-item p{font-size:13px;line-height:1.65;color:var(--muted);margin:0 0 14px;overflow-wrap:anywhere}.contact-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;border-radius:10px;padding:10px 13px;background:var(--green);color:#fff;font-weight:750;font-size:12px}.contact-link:hover{background:var(--green-dark)}.contact-link.secondary{background:var(--mint);color:var(--green-dark);border:1px solid #cce8d9}.contact-link.secondary:hover{background:#d4efdf}.hours-pill{display:inline-flex;align-items:center;gap:7px;border-radius:999px;background:#e8f7ed;color:#147548;padding:7px 10px;font-size:12px;font-weight:800}.hours-dot{width:7px;height:7px;border-radius:50%;background:#21a366}
+@media(max-width:700px){.contact-grid{grid-template-columns:1fr}.contact-item{padding:17px}.contact-link{min-height:42px}}
+</style>
+
 </head>
 <body>
 <div class="announcement">YOUR NEIGHBOURHOOD HEALTH & WELLNESS STORE <span aria-hidden="true">✦</span> HERE FOR YOUR EVERYDAY ESSENTIALS</div>
@@ -46,6 +52,17 @@ footer{background:#fff;border-top:1px solid var(--line);padding:27px 0;color:var
 <div id="status" class="status">Loading products…</div><section id="products" class="grid" aria-live="polite"></section>
 </section>
 <section class="wrap"><div class="bottom-banner"><div><h3>Need help finding something?</h3><p>Visit your neighbourhood store for assistance with everyday essentials.</p></div><a class="secondary-btn" href="#catalog">Browse products ↑</a></div></section>
+<section class="wrap contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="contact-card">
+    <div class="contact-heading"><span class="section-kicker">We're here for you</span><h2 id="contact-title">Contact our store</h2><p>Questions about a product? Call or message us, or open the address in Google Maps to plan your visit.</p></div>
+    <div class="contact-grid">
+      <article class="contact-item"><div class="contact-icon" aria-hidden="true">☎</div><h3>Call the store</h3><p>9970144640</p><a class="contact-link" href="tel:+919970144640" aria-label="Call Shrinivas Medical and General Store">Call now ↗</a></article>
+      <article class="contact-item"><div class="contact-icon" aria-hidden="true">☏</div><h3>WhatsApp us</h3><p>Chat with us about store products and availability.</p><a class="contact-link" href="https://wa.me/919970144640" target="_blank" rel="noopener noreferrer" aria-label="Chat with Shrinivas Medical and General Store on WhatsApp">Chat on WhatsApp ↗</a></article>
+      <article class="contact-item"><div class="contact-icon" aria-hidden="true">⌖</div><h3>Visit our store</h3><p>Main road, near Gram panchayat, Barul, Maharashtra 431746</p><a class="contact-link secondary" href="https://www.google.com/maps/search/?api=1&amp;query=Main%20road%2C%20near%20Gram%20panchayat%2C%20Barul%2C%20Maharashtra%20431746" target="_blank" rel="noopener noreferrer" aria-label="Find the store address in Google Maps">Open in Maps ↗</a></article>
+    </div>
+    <p style="margin:18px 0 0;color:var(--muted);font-size:13px"><span class="hours-pill"><span class="hours-dot" aria-hidden="true"></span>Open 24 hours</span></p>
+  </div>
+</section>
 </main>
 <footer><div class="wrap footer-inner"><div class="footer-brand"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="19" fill="#e6f5ee"/><path d="M26 12h12v14h14v12H38v14H26V38H12V26h14z" fill="#087f5b"/><path d="M38 11c10 2 15 10 13 19-9 0-16-5-17-14 1-2 2-4 4-5z" fill="#8bd4a8"/></svg><span>SHRINIVAS Medical & General Store</span></div><span>© <span id="year"></span> Shrinivas Medical and General Store. All rights reserved.</span></div></footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script>
