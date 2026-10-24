@@ -1,80 +1,54 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Store Admin | Shrinivas Medical and General Store</title>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#123f43"><title>Store Admin | Shrinivas Medical and General Store</title>
 <style>
-:root{--green:#176b45;--dark:#0e5133;--bg:#f5f8f5;--ink:#17231c;--muted:#65736a;--line:#dce6df;--red:#b42318}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif}.wrap{max-width:1000px;margin:auto;padding:22px 16px 50px}
-header{background:var(--dark);color:white;padding:18px}.head{max-width:1000px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}h1{font-size:24px;margin:0}.back{color:white}
-.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0;box-shadow:0 3px 12px #173b240a}
-h2{margin:0 0 16px;font-size:21px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:14px;font-weight:bold}
-input,textarea,select{width:100%;padding:11px;border:1px solid #cbd7ce;border-radius:8px;font:inherit;background:#fff}textarea{min-height:80px;resize:vertical}
-button{border:0;border-radius:8px;background:var(--green);color:white;padding:11px 15px;font-weight:bold;cursor:pointer}button.secondary{background:#e8efe9;color:var(--ink)}button.danger{background:var(--red)}button:disabled{opacity:.5;cursor:not-allowed}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.message{padding:12px;border-radius:8px;background:#edf5ef;color:#234b31;margin:12px 0}.message.error{background:#fff0ef;color:#8d1a12}.muted{color:var(--muted);font-size:14px}
-.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:14px}th{background:#f3f7f3}td button{padding:7px 10px;margin:2px}
-.hidden{display:none!important}
-@media(max-width:600px){.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:15px}}
-</style>
-</head>
+:root{--green:#087f5b;--dark:#123f43;--mint:#e6f5ee;--bg:#f5f9f6;--ink:#18312c;--muted:#657873;--line:#e0ebe5;--red:#b42318;--shadow:0 12px 35px #164b320b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{width:min(1060px,calc(100% - 32px));margin:auto;padding:30px 0 55px}
+header{background:var(--dark);color:#fff;border-bottom:4px solid #087f5b}.head{width:min(1060px,calc(100% - 32px));min-height:86px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px}.brand svg{width:48px;height:48px}.brand strong{display:block;font-size:16px;letter-spacing:.06em}.brand small{display:block;color:#c7ded5;font-size:11px;letter-spacing:.09em;text-transform:uppercase;margin-top:4px}.back{color:#e2f5ea;text-decoration:none;border:1px solid #62847d;border-radius:11px;padding:10px 14px;font-size:13px;font-weight:700}.back:hover{background:#ffffff12}
+.welcome{padding:7px 0 17px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.15em;font-weight:850;color:var(--green)}.welcome h1{font-size:clamp(27px,4vw,38px);letter-spacing:-.04em;color:var(--dark);margin:9px 0}.welcome p{color:var(--muted);font-size:14px;line-height:1.6;margin:0}
+.message{padding:13px 15px;border-radius:12px;background:#eaf7ef;border:1px solid #d4ecdc;color:#225b3c;margin:15px 0;font-size:13px;line-height:1.5}.message.error{background:#fff0ef;border-color:#f4d2cf;color:#8d1a12}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;margin:16px 0;box-shadow:var(--shadow)}h2{margin:0 0 17px;font-size:20px;letter-spacing:-.025em;color:var(--dark)}.panel-intro{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.muted{color:var(--muted);font-size:13px;line-height:1.65}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label{font-size:12px;font-weight:800;color:#35544b}
+input,textarea,select{width:100%;padding:12px 13px;border:1px solid #d6e3db;border-radius:10px;font:inherit;font-size:14px;background:#fff;color:var(--ink);outline:none;transition:.2s}input:focus,textarea:focus,select:focus{border-color:#6fb993;box-shadow:0 0 0 4px #087f5b12}textarea{min-height:92px;resize:vertical}
+button{border:0;border-radius:10px;background:var(--green);color:white;padding:12px 16px;font-weight:800;font-size:13px;cursor:pointer;transition:.2s}button:hover{filter:brightness(.94);transform:translateY(-1px)}button.secondary{background:#edf5ef;color:var(--dark)}button.danger{background:#fff0ef;color:var(--red)}button:disabled{opacity:.5;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.hidden{display:none!important}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;padding:14px;border-bottom:1px solid #eaf0ec;font-size:13px}th{background:#f5f9f6;color:#557068;text-transform:uppercase;letter-spacing:.07em;font-size:10px}tbody tr:last-child td{border-bottom:0}tbody tr:hover{background:#fbfdfb}td:first-child{font-weight:750;color:var(--dark)}td button{padding:8px 10px;margin:2px}.count-pill{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;padding:0 8px;border-radius:9px;background:var(--mint);color:var(--green);font-size:12px;font-weight:850}
+.login-panel{max-width:540px;margin:20px auto}.login-panel .panel{padding:clamp(22px,4vw,34px)}.login-symbol{width:56px;height:56px;border-radius:17px;background:var(--mint);display:grid;place-items:center;margin-bottom:18px;color:var(--green);font-size:26px}.login-panel .fields{grid-template-columns:1fr}
+@media(max-width:600px){.wrap{width:calc(100% - 24px);padding-top:22px}.head{width:calc(100% - 24px);min-height:76px}.brand svg{width:40px;height:40px}.brand strong{font-size:13px}.brand small{font-size:9px}.back{font-size:11px;padding:9px}.panel{padding:17px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.welcome h1{font-size:29px}}
+</style></head>
 <body>
-<header><div class="head"><h1>Store Admin Dashboard</h1><a class="back" href="index.html">View store</a></div></header>
+<header><div class="head"><div class="brand"><svg viewBox="0 0 64 64" role="img" aria-label="Shrinivas medical cross and leaf logo"><rect x="1" y="1" width="62" height="62" rx="19" fill="#e6f5ee"/><path d="M26 12h12v14h14v12H38v14H26V38H12V26h14z" fill="#087f5b"/><path d="M38 11c10 2 15 10 13 19-9 0-16-5-17-14 1-2 2-4 4-5z" fill="#8bd4a8"/><path d="M37 17l9 8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><div><strong>SHRINIVAS</strong><small>Medical & General Store · Admin</small></div></div><a class="back" href="index.html">← View customer store</a></div></header>
 <main class="wrap">
-  <div id="notice" class="message">Sign in using the admin account created in your Supabase project.</div>
-  <section id="loginPanel" class="panel">
-    <h2>Admin login</h2>
-    <form id="loginForm"><div class="fields">
-      <div class="field full"><label for="email">Email</label><input id="email" type="email" autocomplete="username" required></div>
-      <div class="field full"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
-    </div><div class="actions"><button type="submit">Sign in</button></div></form>
-  </section>
-  <section id="dashboard" class="hidden">
-    <section class="panel"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap"><h2 style="margin:0">Products</h2><button id="logout" class="secondary" type="button">Sign out</button></div><p class="muted">Use this page to add, edit, or remove store products. Only authenticated users listed in store_admins should have write access.</p></section>
-    <section class="panel"><h2 id="formTitle">Add a product</h2>
-      <form id="productForm"><input id="productId" type="hidden"><div class="fields">
-        <div class="field"><label for="name">Product name *</label><input id="name" required maxlength="160"></div>
-        <div class="field"><label for="category">Category</label><input id="category" placeholder="e.g. Personal care"></div>
-        <div class="field"><label for="price">Price (₹) *</label><input id="price" type="number" min="0" step="0.01" required></div>
-        <div class="field"><label for="stock">Stock quantity</label><input id="stock" type="number" min="0" step="1" value="0"></div>
-        <div class="field full"><label for="image_url">Image URL (optional)</label><input id="image_url" type="url" placeholder="https://..."></div>
-        <div class="field full"><label for="description">Description</label><textarea id="description"></textarea></div>
-        <div class="field"><label for="is_active">Visibility</label><select id="is_active"><option value="true">Visible in store</option><option value="false">Hidden from store</option></select></div>
-      </div><div class="actions"><button type="submit">Save product</button><button id="cancelEdit" type="button" class="secondary hidden">Cancel edit</button></div></form>
-    </section>
-    <section class="panel"><h2>Existing products</h2><div class="table-wrap"><table><thead><tr><th>Name</th><th>Price</th><th>Stock</th><th>Visible</th><th>Actions</th></tr></thead><tbody id="productRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div></section>
-  </section>
+<section class="welcome"><span class="eyebrow">Store management</span><h1>Good to see you.</h1><p>Manage your store catalogue from one simple dashboard. Changes to visible products appear on your customer website.</p></section>
+<div id="notice" class="message">Sign in using the admin account created in your Supabase project.</div>
+<section id="loginPanel" class="login-panel"><div class="panel"><div class="login-symbol" aria-hidden="true">✚</div><h2>Admin sign in</h2><p class="muted">Access is limited to the account you registered as a store administrator.</p><form id="loginForm"><div class="fields"><div class="field"><label for="email">Email address</label><input id="email" type="email" autocomplete="username" placeholder="you@example.com" required></div><div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required></div></div><div class="actions"><button type="submit">Sign in to dashboard →</button></div></form></div></section>
+<section id="dashboard" class="hidden">
+<section class="panel"><div class="panel-intro"><div><h2 style="margin-bottom:5px">Product catalogue <span id="productCount" class="count-pill">0</span></h2><p class="muted" style="margin:0">Add new items, update prices and stock, or hide products from customers.</p></div><button id="logout" class="secondary" type="button">Sign out</button></div></section>
+<section class="panel"><h2 id="formTitle">＋ Add a product</h2><form id="productForm"><input id="productId" type="hidden"><div class="fields">
+<div class="field"><label for="name">Product name *</label><input id="name" required maxlength="160" placeholder="e.g. Cotton bandage"></div>
+<div class="field"><label for="category">Category</label><input id="category" placeholder="e.g. First aid"></div>
+<div class="field"><label for="price">Price (₹) *</label><input id="price" type="number" min="0" step="0.01" required placeholder="0.00"></div>
+<div class="field"><label for="stock">Stock quantity</label><input id="stock" type="number" min="0" step="1" value="0"></div>
+<div class="field full"><label for="image_url">Product image URL (optional)</label><input id="image_url" type="url" placeholder="https://example.com/product.jpg"></div>
+<div class="field full"><label for="description">Short description</label><textarea id="description" placeholder="A short description to help customers understand the product"></textarea></div>
+<div class="field"><label for="is_active">Visibility on customer website</label><select id="is_active"><option value="true">Visible in store</option><option value="false">Hidden from store</option></select></div>
+</div><div class="actions"><button type="submit">Save product</button><button id="cancelEdit" type="button" class="secondary hidden">Cancel editing</button></div></form></section>
+<section class="panel"><h2>All products</h2><p class="muted">Only add products that your store is permitted to sell. Confirm product details and pricing before publishing.</p><div class="table-wrap"><table><thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Visible</th><th>Actions</th></tr></thead><tbody id="productRows"><tr><td colspan="5">Loading products…</td></tr></tbody></table></div></section>
+</section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script>
 <script>
 const $=id=>document.getElementById(id);let db=null,currentProducts=[];
 function notify(msg,error=false){$('notice').textContent=msg;$('notice').classList.toggle('error',error);$('notice').classList.remove('hidden');}
 function esc(v=''){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function configReady(){return window.STORE_SUPABASE_URL && window.STORE_SUPABASE_PUBLISHABLE_KEY && !window.STORE_SUPABASE_URL.includes('YOUR_') && !window.STORE_SUPABASE_PUBLISHABLE_KEY.includes('YOUR_');}
+function configReady(){return window.STORE_SUPABASE_URL&&window.STORE_SUPABASE_PUBLISHABLE_KEY&&!window.STORE_SUPABASE_URL.includes('YOUR_')&&!window.STORE_SUPABASE_PUBLISHABLE_KEY.includes('YOUR_');}
 async function isAdmin(user){const {data,error}=await db.from('store_admins').select('user_id').eq('user_id',user.id).maybeSingle();return !error&&!!data;}
 function showDashboard(on){$('loginPanel').classList.toggle('hidden',on);$('dashboard').classList.toggle('hidden',!on);}
-async function refreshAuth(){
-  const {data:{session}}=await db.auth.getSession();
-  if(!session){showDashboard(false);return;}
-  if(!(await isAdmin(session.user))){await db.auth.signOut();showDashboard(false);notify('This account is signed in but is not listed as a store admin. Check the store_admins table.',true);return;}
-  showDashboard(true);await loadProducts();
-}
-async function loadProducts(){
- const {data,error}=await db.from('products').select('*').order('created_at',{ascending:false});
- if(error){notify('Could not load products. Check the RLS policies and database setup.',true);return;}
- currentProducts=data||[];
- $('productRows').innerHTML=currentProducts.length?currentProducts.map(p=>`<tr><td>${esc(p.name)}</td><td>₹${Number(p.price||0).toFixed(2)}</td><td>${Number(p.stock||0)}</td><td>${p.is_active?'Yes':'No'}</td><td><button type="button" data-edit="${esc(p.id)}">Edit</button><button type="button" class="danger" data-delete="${esc(p.id)}">Delete</button></td></tr>`).join(''):'<tr><td colspan="5">No products yet. Add your first product above.</td></tr>';
-}
-function resetForm(){$('productForm').reset();$('productId').value='';$('stock').value='0';$('is_active').value='true';$('formTitle').textContent='Add a product';$('cancelEdit').classList.add('hidden');}
-$('loginForm').addEventListener('submit',async e=>{e.preventDefault();if(!db){notify('Add your Supabase Project URL and publishable key to supabase-config.js first.',true);return;}
- notify('Signing in…');const {error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error){notify('Sign-in failed. Check the email/password and confirm the user exists in this Supabase project.',true);return;}await refreshAuth();});
-$('productForm').addEventListener('submit',async e=>{e.preventDefault();const id=$('productId').value;const product={name:$('name').value.trim(),category:$('category').value.trim()||null,price:Number($('price').value),stock:Number($('stock').value||0),image_url:$('image_url').value.trim()||null,description:$('description').value.trim()||null,is_active:$('is_active').value==='true',updated_at:new Date().toISOString()};
- const result=id?await db.from('products').update(product).eq('id',id):await db.from('products').insert(product);
- if(result.error){notify('Could not save product. Check the error details in the browser console and your RLS policies.',true);console.error(result.error);return;}
- notify(id?'Product updated.':'Product added.');resetForm();await loadProducts();});
-$('productRows').addEventListener('click',async e=>{const edit=e.target.dataset.edit,del=e.target.dataset.delete;if(edit){const p=currentProducts.find(x=>x.id===edit);if(!p)return;$('productId').value=p.id;$('name').value=p.name||'';$('category').value=p.category||'';$('price').value=p.price??'';$('stock').value=p.stock??0;$('image_url').value=p.image_url||'';$('description').value=p.description||'';$('is_active').value=String(!!p.is_active);$('formTitle').textContent='Edit product';$('cancelEdit').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
- if(del){const p=currentProducts.find(x=>x.id===del);if(!p||!confirm(`Delete "${p.name}"? This cannot be undone.`))return;const {error}=await db.from('products').delete().eq('id',del);if(error){notify('Could not delete product. Check admin access and RLS policies.',true);console.error(error);return;}notify('Product deleted.');await loadProducts();}});
+async function refreshAuth(){const {data:{session}}=await db.auth.getSession();if(!session){showDashboard(false);return;}if(!(await isAdmin(session.user))){await db.auth.signOut();showDashboard(false);notify('This account is not listed as a store admin. Check the user ID in the store_admins table.',true);return;}showDashboard(true);notify('Signed in successfully. Your product catalogue is ready.');await loadProducts();}
+async function loadProducts(){const {data,error}=await db.from('products').select('*').order('created_at',{ascending:false});if(error){notify('Could not load products. Check your database setup and row-level security policies.',true);console.error(error);return;}currentProducts=data||[];$('productCount').textContent=currentProducts.length;$('productRows').innerHTML=currentProducts.length?currentProducts.map(p=>'<tr><td>'+esc(p.name)+'</td><td>₹'+Number(p.price||0).toFixed(2)+'</td><td>'+Number(p.stock||0)+'</td><td>'+(p.is_active?'<span style="color:#087f5b;font-weight:800">● Visible</span>':'<span style="color:#7c8983">○ Hidden</span>')+'</td><td><button type="button" data-edit="'+esc(p.id)+'">Edit</button><button type="button" class="danger" data-delete="'+esc(p.id)+'">Delete</button></td></tr>').join(''):'<tr><td colspan="5">No products yet. Add your first product above.</td></tr>';}
+function resetForm(){$('productForm').reset();$('productId').value='';$('stock').value='0';$('is_active').value='true';$('formTitle').textContent='＋ Add a product';$('cancelEdit').classList.add('hidden');}
+$('loginForm').addEventListener('submit',async e=>{e.preventDefault();if(!db){notify('Add your Supabase Project URL and publishable key to supabase-config.js first.',true);return;}notify('Signing in…');const {error}=await db.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error){notify('Sign-in failed. Check your email and password, and make sure this user exists in the current Supabase project.',true);return;}await refreshAuth();});
+$('productForm').addEventListener('submit',async e=>{e.preventDefault();const id=$('productId').value;const product={name:$('name').value.trim(),category:$('category').value.trim()||null,price:Number($('price').value),stock:Number($('stock').value||0),image_url:$('image_url').value.trim()||null,description:$('description').value.trim()||null,is_active:$('is_active').value==='true',updated_at:new Date().toISOString()};const result=id?await db.from('products').update(product).eq('id',id):await db.from('products').insert(product);if(result.error){notify('Could not save product. Check your admin access and database policies.',true);console.error(result.error);return;}notify(id?'Product updated successfully.':'Product added successfully.');resetForm();await loadProducts();});
+$('productRows').addEventListener('click',async e=>{const edit=e.target.dataset.edit,del=e.target.dataset.delete;if(edit){const p=currentProducts.find(x=>String(x.id)===edit);if(!p)return;$('productId').value=p.id;$('name').value=p.name||'';$('category').value=p.category||'';$('price').value=p.price??'';$('stock').value=p.stock??0;$('image_url').value=p.image_url||'';$('description').value=p.description||'';$('is_active').value=String(!!p.is_active);$('formTitle').textContent='Edit product';$('cancelEdit').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}if(del){const p=currentProducts.find(x=>String(x.id)===del);if(!p||!confirm('Delete "'+p.name+'"? This cannot be undone.'))return;const {error}=await db.from('products').delete().eq('id',del);if(error){notify('Could not delete product. Check admin access and database policies.',true);console.error(error);return;}notify('Product deleted.');await loadProducts();}});
 $('cancelEdit').addEventListener('click',resetForm);$('logout').addEventListener('click',async()=>{await db.auth.signOut();showDashboard(false);notify('You have signed out.');});
-if(!configReady()){notify('Setup required: add your Project URL and publishable key in supabase-config.js. Do not use a secret/service_role key.',true);showDashboard(false);}
-else{db=window.supabase.createClient(window.STORE_SUPABASE_URL,window.STORE_SUPABASE_PUBLISHABLE_KEY);refreshAuth();}
-</script>
-</body></html>
+if(!configReady()){notify('Setup required: add your Project URL and publishable key in supabase-config.js. Never use a secret/service_role key.',true);showDashboard(false);}else{db=window.supabase.createClient(window.STORE_SUPABASE_URL,window.STORE_SUPABASE_PUBLISHABLE_KEY);refreshAuth();}
+</script></body></html>
